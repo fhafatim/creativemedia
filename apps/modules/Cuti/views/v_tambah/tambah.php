@@ -36,7 +36,7 @@
                         <div class="tab-content">
                             <div class="active tab-pane" id="cuti">
                                 <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">No<font color="red">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">No.Surat <font color="red">
                                             *
                                         </font></label>
                                     <div class="col-sm-7">
@@ -56,7 +56,7 @@
                                             *
                                         </font></label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control" placeholder="Nama Karyawan" name="nama" id="nama" aria-describedby="sizing-addon2" autocomplete="off">
+                                        <input type="text" class="form-control" placeholder="Nama Karyawan" name="nama" id="nama" aria-describedby="sizing-addon2" autocomplete="off" value="<?php echo $userdata->nama; ?>" readonly>
                                     </div>
                                 </div>
 
@@ -65,7 +65,7 @@
                                             *
                                         </font></label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control" placeholder="Jabatan" name="jabatan" id="jabatan" aria-describedby="sizing-addon2" autocomplete="off">
+                                        <input type="text" class="form-control" placeholder="Jabatan" name="jabatan" id="jabatan" aria-describedby="sizing-addon2" autocomplete="off" value="<?php echo $userdata->nama_grup; ?>" readonly>
                                     </div>
                                 </div>
 
@@ -97,6 +97,14 @@
                                             <option value="Bersalin">Bersalin</option>
                                             <option value="Sakit">Sakit</option>
                                         </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Jumlah Cuti <font color="red"> *
+                                        </font></label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control" placeholder="Jumlah Cuti" name="jmlh_cuti" id="jmlh_cuti" aria-describedby="sizing-addon2" autocomplete="off">
                                     </div>
                                 </div>
 

@@ -13,7 +13,14 @@ class M_cuti extends CI_Model
     }
     function get_data()
     {
-        $sql = "SELECT * FROM cuti";
+        if ($this->session->userdata('id') == "6") {
+            $sql = "SELECT * FROM cuti";;
+        } else if ($this->session->userdata('id') == "7") {
+            $sql = "SELECT * FROM cuti WHERE nama LIKE '%" . $this->session->userdata('nama') . "%'";
+        } else {
+            $sql = "SELECT * FROM cuti";
+        }
+
         $data = $this->db->query($sql);
         return $data->result();
     }

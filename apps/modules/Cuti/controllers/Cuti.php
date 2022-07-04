@@ -48,6 +48,7 @@ class Cuti extends AUTH_Controller
             $row[] = $cuti->tglcuti;
             $row[] = $cuti->selesai;
             $row[] = $cuti->jeniscuti;
+            $row[] = $cuti->jmlh_cuti;
             $row[] = $cuti->sisacuti;
             $row[] = $cuti->keperluan;
             $row[] = '<a href="' . base_url() . '' . $cuti->lampiran . '" target="_blank"><img class="img-thumbnail" src="' . base_url() . '' . $cuti->lampiran . '"   width="90" /></a>';
@@ -111,6 +112,7 @@ class Cuti extends AUTH_Controller
                     'tglcuti'     => $this->input->post('tglcuti'),
                     'selesai'     => $this->input->post('selesai'),
                     'jeniscuti'        => $this->input->post('jeniscuti'),
+                    'jmlh_cuti'     => $this->input->post('jmlh_cuti'),
                     'sisacuti'        => $this->input->post('sisacuti'),
                     'keperluan'        => $this->input->post('keperluan'),
                     'lampiran'            => $path['link'] . '' . $image_data['file_name'],
@@ -131,6 +133,7 @@ class Cuti extends AUTH_Controller
                     'tglcuti'     => $this->input->post('tglcuti'),
                     'selesai'     => $this->input->post('selesai'),
                     'jeniscuti'        => $this->input->post('jeniscuti'),
+                    'jmlh_cuti'        => $this->input->post('jmlh_cuti'),
                     'sisacuti'        => $this->input->post('sisacuti'),
                     'keperluan'        => $this->input->post('keperluan'),
                     'lampiran'            => 'upload/lampiran/avatar.png',
@@ -170,6 +173,7 @@ class Cuti extends AUTH_Controller
 
         /*ini harus ada boss */
         $data['userdata'] = $this->userdata;
+        $data['idpg'] = $this->session->userdata('id');
         $access = $this->M_sidebar->access('edit', 'cuti');
         if ($access->menuview == 0) {
             $data['page']         = "Data Cuti";
@@ -198,8 +202,8 @@ class Cuti extends AUTH_Controller
         // $this->load->library('upload', $config);
 
         // if ($this->upload->do_upload("gambar")) {
-        // $image_data = $this->upload->data();
-        // $path['link'] = "upload/lampiran/";
+        //     $image_data = $this->upload->data();
+        //     $path['link'] = "upload/lampiran/";
 
         $where = array(
             'no_surat'            => $this->input->post('no_surat')
@@ -209,11 +213,11 @@ class Cuti extends AUTH_Controller
             // 'nama'            => $this->input->post('nama'),
             // 'jabatan'            => $this->input->post('jabatan'),
             // 'divisi'                    => $this->input->post('divisi'),
-            // 'tglcuti'           => $this->input->post('tglcuti'),
-            // 'selesai'           => $this->input->post('selesai'),
-            // 'jeniscuti'           => $this->input->post('jeniscuti'),
-            // 'sisacuti'                => $this->input->post('sisacuti'),
-            // 'keperluan'                    => $this->input->post('keperluan'),
+            'tglcuti'           => $this->input->post('tglcuti'),
+            'selesai'           => $this->input->post('selesai'),
+            'jeniscuti'           => $this->input->post('jeniscuti'),
+            'sisacuti'                => $this->input->post('sisacuti'),
+            'keperluan'                    => $this->input->post('keperluan'),
             // 'lampiran'            => $path['link'] . '' . $image_data['file_name'],
             'status'                => $this->input->post('status')
         );

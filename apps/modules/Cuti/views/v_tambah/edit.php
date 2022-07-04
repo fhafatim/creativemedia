@@ -9,7 +9,15 @@
         z-index: 2;
     }
 </style>
+<?php
+if ($idpg == "7") {
+    $hehe = '';
+    $hoho = 'style="visibility:hidden"';
+} else {
+    $hehe = 'readonly';
+}
 
+?>
 <section class="content">
     <!-- style loading -->
     <div class="loading2"></div>
@@ -61,31 +69,40 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Tgl Cuti</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="tglcuti" name="tglcuti" placeholder="Tanggal Cuti" aria-describedby="sizing-addon2" value="<?php echo $datacuti->tglcuti; ?>" readonly>
+                                <input type="date" class="form-control" id="tglcuti" name="tglcuti" placeholder="Tanggal Cuti" aria-describedby="sizing-addon2" value="<?php $dob = (new DateTime($datacuti->tglcuti))->format('Y-m-d');
+                                                                                                                                                                        echo $dob ?>" <?= $hehe ?>>
                             </div>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="selesai" name="selesai" placeholder="Tanggal Selesai" aria-describedby="sizing-addon2" value="<?php echo $datacuti->selesai; ?>" readonly>
+                                <input type="date" class="form-control" id="selesai" name="selesai" placeholder="Tanggal Selesai" aria-describedby="sizing-addon2" value="<?php $dib = (new DateTime($datacuti->selesai))->format('Y-m-d');
+                                                                                                                                                                            echo $dib ?>" <?= $hehe ?>>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Jenis Cuti</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" placeholder="jeniscuti" name="jeniscuti" id="jeniscuti" aria-describedby="sizing-addon2" value="<?php echo $datacuti->jeniscuti; ?>" readonly>
+                                <input type="text" class="form-control" placeholder="jeniscuti" name="jeniscuti" id="jeniscuti" aria-describedby="sizing-addon2" value="<?php echo $datacuti->jeniscuti; ?>" <?= $hehe ?>>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Jumlah Cuti</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" placeholder="jmlh_cuti" name="jmlh_cuti" id="jmlh_cuti" aria-describedby="sizing-addon2" value="<?php echo $datacuti->jmlh_cuti; ?>" <?= $hehe ?>>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Sisa Cuti</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" placeholder="sisacuti" name="sisacuti" id="sisacuti" aria-describedby="sizing-addon2" value="<?php echo $datacuti->sisacuti; ?>" readonly>
+                                <input type="text" class="form-control" placeholder="sisacuti" name="sisacuti" id="sisacuti" aria-describedby="sizing-addon2" value="<?php echo $datacuti->sisacuti; ?>" <?= $hehe ?>>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Keperluan</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" placeholder="keperluan" name="keperluan" id="keperluan" aria-describedby="sizing-addon2" value="<?php echo $datacuti->keperluan; ?>" readonly>
+                                <input type="text" class="form-control" placeholder="keperluan" name="keperluan" id="keperluan" aria-describedby="sizing-addon2" value="<?php echo $datacuti->keperluan; ?>" <?= $hehe ?>>
                             </div>
                         </div>
 
@@ -96,7 +113,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" <?= $hoho ?>>
                             <label class="col-sm-2 control-label">Status Izin</label>
                             <div class="col-sm-3">
                                 <select name="status" class="form-control selek-status">
