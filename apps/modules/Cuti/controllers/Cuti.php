@@ -216,6 +216,7 @@ class Cuti extends AUTH_Controller
             'tglcuti'           => $this->input->post('tglcuti'),
             'selesai'           => $this->input->post('selesai'),
             'jeniscuti'           => $this->input->post('jeniscuti'),
+            'jmlh_cuti'           => $this->input->post('jmlh_cuti'),
             'sisacuti'                => $this->input->post('sisacuti'),
             'keperluan'                    => $this->input->post('keperluan'),
             // 'lampiran'            => $path['link'] . '' . $image_data['file_name'],

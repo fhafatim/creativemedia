@@ -226,6 +226,14 @@ $route['cuti'] =   'Cuti/Cuti/index';
 $route['add-cuti'] = 'Cuti/Cuti/add';
 $route['edit-cuti/(:any)'] = 'Cuti/Cuti/edit/$1';
 
+/*route Surat*/
+$route['surat-tubanan'] = 'Surat/Surat_tubanan/index';
+$route['add-surat-tubanan'] = 'Surat/Surat_tubanan/add';
+$route['edit-surat-tubanan/(:any)'] = 'Surat/Surat_tubanan/edit/$1';
+
+$route['surat-nginden'] = 'Surat/Surat_nginden/index';
+$route['add-surat-nginden'] = 'Surat/Surat_nginden/add';
+$route['edit-surat-nginden/(:any)'] = 'Surat/Surat_nginden/edit/$1';
 
 
 
