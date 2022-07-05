@@ -15,6 +15,7 @@ if ($idpg == "7") {
     $hoho = 'style="visibility:hidden"';
 } else {
     $hehe = 'readonly';
+    $klo = 'style="visibility:hidden"';
 }
 
 ?>
@@ -109,8 +110,12 @@ if ($idpg == "7") {
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Lampiran</label>
                             <div id="slider">
+                                <div class="col-sm-6">
+                                    <input type="file" class="form-control" name="gambar" id="gambar" required <?= $klo ?>>
+                                </div>
                                 <img class="img-thumbnail" id="output" src="<?php echo base_url($datacuti->lampiran); ?>" alt="your image" />
                             </div>
+
                         </div>
 
                         <div class="form-group" <?= $hoho ?>>
