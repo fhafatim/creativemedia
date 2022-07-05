@@ -111,7 +111,10 @@ if ($idpg == "7") {
                             <label for="inputEmail3" class="col-sm-2 control-label">Lampiran</label>
                             <div id="slider">
                                 <div class="col-sm-6">
-                                    <input type="file" class="form-control" name="gambar" id="gambar" required <?= $klo ?>>
+                                    <input type="file" class="form-control" name="gambar" id="gambar" <?= $klo ?>>
+                                    <?php if (!empty($klo)) { ?>
+                                        <input type="hidden" name="editg" value="<?= $datacuti->lampiran ?>">
+                                    <?php } ?>
                                 </div>
                                 <img class="img-thumbnail" id="output" src="<?php echo base_url($datacuti->lampiran); ?>" alt="your image" />
                             </div>

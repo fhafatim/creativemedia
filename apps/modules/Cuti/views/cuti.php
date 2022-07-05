@@ -12,7 +12,7 @@
             <div class="col-md-2">
                 <a href="<?php echo site_url('add-cuti'); ?>"><button class=" btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Add Data</button></a>
             </div>
-        </div> 
+        </div>
 
         <!-- /.box-header -->
         <div class="card">
@@ -32,7 +32,7 @@
                                 <th>Jumlah Cuti</th>
                                 <th>Sisa Cuti</th>
                                 <th>Keperluan</th>
-                                <th></th>
+                                <th style="width:125px;"></th>
                                 <th>Status</th>
                                 <th style="width:125px;">Action</th>
                             </tr>
@@ -52,18 +52,18 @@
 
     $(document).ready(function() {
 
-//datatables
-    table = $('#table').DataTable({
+        //datatables
+        table = $('#table').DataTable({
             "processing": false, //Feature control the processing indicator.
             "order": [], //Initial no order.
 
-        // Load data for the table's content from an Ajax source
+            // Load data for the table's content from an Ajax source
             "ajax": {
                 "url": "<?php echo site_url('Cuti/ajax_list') ?>",
                 "type": "POST"
             },
 
-    //Set column definition initialisation properties.
+            //Set column definition initialisation properties.
             "columnDefs": [{
 
             }, ],

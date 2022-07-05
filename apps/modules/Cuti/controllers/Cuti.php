@@ -60,8 +60,7 @@ class Cuti extends AUTH_Controller
 
             $row[] = $Status;
             $row[] =  anchor('edit-cuti/' . $cuti->no_surat, ' <span class="fa fa-edit"></span> ', ' class="btn btn-sm btn-primary ajaxify klik " ') .
-                '  <button class="btn btn-sm btn-danger hapus-cuti" data-id=' . "'" . $cuti->no_surat . "'" . '><i class="glyphicon glyphicon-trash"></i></button> ' .
-                anchor('edit-cuti/' . $cuti->no_surat, ' <span class="fa fa-book"></span> ', ' class="btn btn-sm btn-primary ajaxify klik " ');
+                '  <button class="btn btn-sm btn-danger hapus-cuti" data-id=' . "'" . $cuti->no_surat . "'" . '><i class="glyphicon glyphicon-trash"></i></button> ';
             $data[] = $row;
         }
 
@@ -201,14 +200,12 @@ class Cuti extends AUTH_Controller
 
         $this->load->library('upload', $config);
 
+        $where = array(
+            'no_surat'            => $this->input->post('no_surat')
+        );
         if ($this->upload->do_upload("gambar")) {
-            $image_data = $this->upload->data();
+            @$image_data = $this->upload->data();
             $path['link'] = "upload/lampiran/";
-
-            $where = array(
-                'no_surat'            => $this->input->post('no_surat')
-            );
-
             $data = array(
                 // 'nama'            => $this->input->post('nama'),
                 // 'jabatan'            => $this->input->post('jabatan'),
@@ -223,13 +220,9 @@ class Cuti extends AUTH_Controller
                 'status'                => $this->input->post('status')
             );
 
-            $result = $this->M_cuti->update($data, $where);
 
-            if ($result > 0) {
-                $out['status'] = 'berhasil';
-            } else {
-                $out['status'] = 'gagal';
-            }
+
+
             // } else {
 
             //     $where = array(
@@ -256,8 +249,29 @@ class Cuti extends AUTH_Controller
             //     } else {
             //         $out['status'] = 'gagal';
             //     }
+        } else {
+            $data = array(
+                // 'nama'            => $this->input->post('nama'),
+                // 'jabatan'            => $this->input->post('jabatan'),
+                // 'divisi'                    => $this->input->post('divisi'),
+                'tglcuti'           => $this->input->post('tglcuti'),
+                'selesai'           => $this->input->post('selesai'),
+                'jeniscuti'           => $this->input->post('jeniscuti'),
+                'jmlh_cuti'           => $this->input->post('jmlh_cuti'),
+                'sisacuti'                => $this->input->post('sisacuti'),
+                'keperluan'                    => $this->input->post('keperluan'),
+                'lampiran'            => $this->input->post('editg'),
+                'status'                => $this->input->post('status')
+            );
         }
+        $result = $this->M_cuti->update($data, $where);
 
+
+        if ($result > 0) {
+            $out['status'] = 'berhasil';
+        } else {
+            $out['status'] = 'gagal';
+        }
         echo json_encode($out);
     }
 }
