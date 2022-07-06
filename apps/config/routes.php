@@ -235,6 +235,22 @@ $route['surat-nginden'] = 'Surat/Surat_nginden/index';
 $route['add-surat-nginden'] = 'Surat/Surat_nginden/add';
 $route['edit-surat-nginden/(:any)'] = 'Surat/Surat_nginden/edit/$1';
 
+/* ROUTE MODUL INVENTARIS */
+$route['inventaris'] = 'Inventaris/Inventaris/index';
+$route['add-inventaris'] = 'Inventaris/Inventaris/Add';
+$route['edit-inventaris/(:any)'] = 'Inventaris/Inventaris/edit/$1';
+
+$route['barang-masuk'] = 'Inventaris/Barang_masuk/index';
+$route['add-barang-masuk'] = 'Inventaris/Barang_masuk/Add';
+$route['edit-barang-masuk/(:any)'] = 'Inventaris/Barang_masuk/edit/$1';
+
+$route['barang-keluar'] = 'Inventaris/Barang_keluar/index';
+$route['add-barang-keluar'] = 'Inventaris/Barang_keluar/Add';
+$route['edit-barang-keluar/(:any)'] = 'Inventaris/Barang_keluar/edit/$1';
+
+$route['jumlah-barang'] = 'Inventaris/Inventaris/jumlah';
+
+
 
 
 
